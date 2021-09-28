@@ -17,7 +17,9 @@ runs:
   using: "composite"
   steps:
     - id: checksum
-      run: echo "::set-output name=sha256-checksum::$($GITHUB_ACTION_PATH/gha-sha.sh ${{ inputs.glob }})"
+      run: |
+        export CLEAN_PATH=$(echo $GITHUB_ACTION_PATH | sed 's/\\/\//g')
+        echo "::set-output name=sha256-checksum::$($CLEAN_PATH/gha-sha.sh ${{ inputs.glob }})"
       shell: bash
     - id: checksum-print
       run: ${{ github.action_path }}/gha-sha.sh ${{ inputs.glob }}
