@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: test
-        uses: Huy-Ngo/gha-sha@v1.0.0
+        uses: Huy-Ngo/gha-sha@v1.0.1
         with:
           glob: 'LICENSE'
       - run: echo SHA256 ${{ steps.test.outputs.checksum }}
