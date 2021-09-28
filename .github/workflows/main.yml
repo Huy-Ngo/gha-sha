@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: test
-        uses: Huy-Ngo/gha-sha@v1.0.4
+        uses: Huy-Ngo/gha-sha@v1.0.5
         with:
           glob: 'LICENSE'
