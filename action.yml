@@ -1,0 +1,21 @@
+name: 'SHA256 Checksum'
+author: Ngô Ngọc Đức Huy
+description: 'Generate SHA256 checksum on all platforms.'
+inputs:
+  glob:
+    description: 'Glob for file pattern'
+    required: true
+    default: '.'
+outputs:
+  sha256-checksum:
+    description: "Generated checksum"
+    value: ${{ steps.checksum.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+    - id: checksum
+      run: echo "::set-output name=sha256-checksum::$(${{ github.action_path }}/gha-sha.sh ${{ inputs.glob }})"
+      shell: bash
+    - id: checksum-print
+      run: ${{ github.action_path }}/gha-sha.sh ${{ inputs.glob }}
+      shell: bash
