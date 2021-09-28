@@ -1,7 +1,8 @@
 name: 'SHA256 Checksum'
 author: Ngô Ngọc Đức Huy
-icon: lock
-color: blue
+branding:
+  icon: lock
+  color: blue
 description: 'Generate SHA256 checksum on all platforms.'
 inputs:
   glob:
