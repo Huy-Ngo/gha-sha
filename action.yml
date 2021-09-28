@@ -18,7 +18,7 @@ runs:
   steps:
     - id: checksum
       run: |
-        export CLEAN_PATH=$(echo $GITHUB_ACTION_PATH | sed 's/\\/\//g')
+        export CLEAN_PATH=$(echo -E "$GITHUB_ACTION_PATH" | sed 's/\\/\//g')
         echo "::set-output name=sha256-checksum::$($CLEAN_PATH/gha-sha.sh ${{ inputs.glob }})"
       shell: bash
     - id: checksum-print
