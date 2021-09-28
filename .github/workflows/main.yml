@@ -1,11 +1,12 @@
 on: [push]
 
 jobs:
-  hello_world_job:
-    runs-on:
-      - ubuntu-latest
-      - windows-2019
-      - macos-11
+  test-checksum:
+    name: Test checksum action on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, windows-2019, macos-10.15]
     name: Checksum
     steps:
       - uses: actions/checkout@v2
