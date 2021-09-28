@@ -7,7 +7,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-20.04, windows-2019, macos-10.15]
-    name: Checksum
     steps:
       - uses: actions/checkout@v2
       - id: test
