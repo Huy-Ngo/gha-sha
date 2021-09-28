@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on:
+      - ubuntu-latest
+      - windows-2019
+      - macos-11
+    name: Checksum
+    steps:
+      - uses: actions/checkout@v2
+      - id: test
+        uses: actions/gha-sha@v1.0.0
+        with:
+          glob: 'LICENSE'
+      - run: echo SHA256 ${{ steps.test.outputs.checksum }}
+        shell: bash
