@@ -10,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test on plaintext
-        uses: Huy-Ngo/gha-sha@v1.0.5
+        uses: Huy-Ngo/gha-sha@v1.1.0
         with:
           glob: 'LICENSE'
       - name: Test on gssapi wheels
-        uses: Huy-Ngo/gha-sha@v1.0.5
+        uses: Huy-Ngo/gha-sha@v1.1.0
         with:
           glob: 'test-res/gssapi-*'
